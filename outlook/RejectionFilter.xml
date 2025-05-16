@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-16"?>
+<Task version="1.2" xmlns="http://schemas.microsoft.com/windows/2004/02/mit/task">
+  <RegistrationInfo>
+    <Description>Moves rejection emails to Outlook's "Rejections" folder.</Description>
+  </RegistrationInfo>
+  <Triggers>
+    <CalendarTrigger>
+      <Repetition>
+        <Interval>PT1H</Interval> <!-- Runs hourly -->
+      </Repetition>
+      <StartBoundary>2023-01-01T09:00:00</StartBoundary>
+    </CalendarTrigger>
+  </Triggers>
+  <Principals>
+    <Principal id="Author">
+      <UserId>S-1-5-21-...REPLACE-WITH-YOUR-SID...</UserId> <!-- Replace with your actual SID -->
+      <LogonType>InteractiveToken</LogonType>
+    </Principal>
+  </Principals>
+  <Settings>
+    <ExecutionTimeLimit>PT1H</ExecutionTimeLimit>
+    <StartWhenAvailable>true</StartWhenAvailable>
+  </Settings>
+  <Actions Context="Author">
+    <Exec>
+      <Command>powershell.exe</Command>
+      <Arguments>-ExecutionPolicy Bypass -File "C:\Scripts\RejectionFilter\RunScript.ps1"</Arguments>
+    </Exec>
+  </Actions>
+</Task>
