@@ -1,4 +1,4 @@
-# Rejection Email Auto-Filter
+# Rejection Email Auto-Filter (work in progress)
 
 Tired of job rejection emails cluttering your inbox? This tool automatically filters them out so you can focus on the opportunities that matter. Works with **Gmail** and **Outlook**!
 
